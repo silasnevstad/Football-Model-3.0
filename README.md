@@ -29,4 +29,28 @@ A python machine learning model to predict the outcomes of soccer games. (La Lig
 <div id="dependencies"></div>
 
 ## Dependencies
-numpy, pandas, IPython.display, soccerdata, sys, statsmodels.stats.outliers_influence, seaborn, matplotlib.pyplot, sklearn.model_selection, scipy.stats, sklearn.linear_model, Ridge, regressors.stats, sklearn.feature_selection, sklearn.ensemble, sklearn.preprocessing, sklearn.pipeline, sklearn.metrics, selenium, webdriver_manager.chrome, bs4, requests, twilio.rest, itertools, tweepy, re, firebase_admin, firebase_admin.credentials, firebase_admin.db, json
+- numpy
+- pandas
+- IPython.display
+- soccerdata
+- sys
+- statsmodels.stats.outliers_influence
+- seaborn
+- matplotlib.pyplot
+- sklearn.model_selection
+- scipy.stats
+- sklearn.linear_model.Ridge
+- regressors.stats
+- sklearn.feature_selection.SelectKBest
+- sklearn.feature_selection.chi2
+- sklearn.metrics.mean_squared_error
+- sklearn.ensemble.RandomForestRegressor
+- sklearn.preprocessing.StandardScaler
+- sklearn.pipeline
+- sklearn.metrics
+- selenium
+- twilio.rest
+- itertools
+- tweepy
+- re
+- firebase_admin
