@@ -57,40 +57,6 @@ from firebase_admin import credentials
 from firebase_admin import db
 import json
 
-# [-- Data Loading --]
-# Inital Data
-# advancedKeeping2019 = pd.read_csv('data/2019-2020/advancedGoalkeeping20192020.csv', decimal='.', usecols = ["Squad","CK","OG","PSxG","PSxG/SoT","PSxG+/-","/90","LGCmp","LGAtt","LGCmp%","PAtt","Thr","PLaunch%","PAvgLen","GAtt","GLaunch%","GAvgLen","Opp","Stp","Stp%","#OPA","#OPA/90","AvgDist"], header = 0)
-# squadStats2019 = pd.read_csv('data/2019-2020/squadstats20192020.csv', decimal='.', usecols = ["Squad","MP","Starts","90s","Gls","Ast","G-PK","CrdY","CrdR","G+A","G+A-PK","xG","xA","npxG+xA","xA","xG+xA","npxG+xA"], header = 0)
-# shootingStats2019 = pd.read_csv('data/2019-2020/shooting20192020.csv', decimal = '.', usecols = ["Squad","Sh","SoT","SoT%","Sh/90","SoT/90","G/Sh","G/SoT","Dist","FK","PK","PKatt","npxG","npxG/Sh","G-xG","np:G-xG"], header = 0)
-# goalShotCreation2019 = pd.read_csv('data/2019-2020/goalShotCreation20192020.csv', decimal = '.', usecols = ["Squad", "SCA▼","SCA90","SCAPassLive","SCAPassDead","SCADrib","SCASh","SCAFld","SCADef","GCA","GCA90","GCAPassLive","GCAPassDead","GCADrib","GCASh","GCAFld","GCADef"], header = 0)
-# goalkeepingStats2019 = pd.read_csv('data/2019-2020/goalkeeping20192020.csv', decimal='.', usecols = ["Squad","GA","GA90","SoTA","Saves","Save%","W","D","L","CS","CS%", "GPKatt", "PKA","PKsv","PKm","Save%"], header = 0)
-# squadDefense2019 = pd.read_csv('data/2019-2020/squadDefensive20192020.csv', decimal='.', usecols = ["Squad", "TKTkl","TklW","TK Def 3rd","TK Mid 3rd","TK Att 3rd","VSTkl","DAtt","Tkl%","Past","Blocks","DSh","Pass","Int","Tkl+Int","Clr","Err"], header = 0)
-# squadPlayingTime2019 = pd.read_csv('data/2019-2020/squadPlayingTime20192020.csv', decimal='.', usecols = ["Squad","Mn/MP","Min%","Mn/Start","Compl","Subs","Mn/Sub","unSub","PPM","onG","onGA","+/-","+/-90","onxG","onxGA","xG+/-","xG+/-90"], header = 0)
-# squadPossession2019 = pd.read_csv('data/2019-2020/squadPossession20192020.csv', decimal='.', usecols = ["Squad", "Poss", "Touches","Def Pen","Def 3rd","Mid 3rd","Att 3rd","Att Pen","Live","Succ","Att","Succ%","Mis","Dis","Rec","PPProg"], header = 0)
-# squadPassing2019 = pd.read_csv('data/2019-2020/squadPassing20192020.csv', decimal='.', usecols = ["Squad", "TCmp","TAtt","TCmp%","PTotDist","PPrgDist","SCmp","SAtt","SCmp%","MCmp","MAtt","MCmp%","LCmp","LAtt","LCmp%","A-xA","KP", "1/3","PPA","CrsPA","PProg"], header = 0)
-
-# advancedKeeping2020 = pd.read_csv('data/2020-2021/advancedGoalkeeping20202021.csv', decimal='.', usecols = ["Squad","CK","OG","PSxG","PSxG/SoT","PSxG+/-","/90","LGCmp","LGAtt","LGCmp%","PAtt","Thr","PLaunch%","PAvgLen","GAtt","GLaunch%","GAvgLen","Opp","Stp","Stp%","#OPA","#OPA/90","AvgDist"], header = 0)
-# squadStats2020 = pd.read_csv('data/2020-2021/squadstats20202021.csv', decimal='.', usecols = ["Squad","MP","Starts","90s","Gls","Ast","G-PK","CrdY","CrdR","G+A","G+A-PK", "xG","xA","npxG+xA","xA","xG+xA","npxG+xA"], header = 0)
-# shootingStats2020 = pd.read_csv('data/2020-2021/shooting20202021.csv', decimal = '.', usecols = ["Squad","Sh","SoT","SoT%","Sh/90","SoT/90","G/Sh","G/SoT","Dist","FK","PK","PKatt","npxG","npxG/Sh","G-xG","np:G-xG"], header = 0)
-# goalShotCreation2020 = pd.read_csv('data/2020-2021/goalShotCreation20202021.csv', decimal = '.', usecols = ["Squad", "SCA▼","SCA90","SCAPassLive","SCAPassDead","SCADrib","SCASh","SCAFld","SCADef","GCA","GCA90","GCAPassLive","GCAPassDead","GCADrib","GCASh","GCAFld","GCADef"], header = 0)
-# goalkeepingStats2020 = pd.read_csv('data/2020-2021/goalkeeping20202021.csv', decimal='.', usecols = ["Squad","GA","GA90","SoTA","Saves","Save%","W","D","L","CS","CS%", "GPKatt", "PKA","PKsv","PKm","Save%"], header = 0)
-# squadDefense2020 = pd.read_csv('data/2020-2021/squadDefensive20202021.csv', decimal='.', usecols = ["Squad", "TKTkl","TklW","TK Def 3rd","TK Mid 3rd","TK Att 3rd","VSTkl","DAtt","Tkl%","Past","Blocks","DSh","Pass","Int","Tkl+Int","Clr","Err"], header = 0)
-# squadPlayingTime2020 = pd.read_csv('data/2020-2021/squadPlayingTime20202021.csv', decimal='.', usecols = ["Squad","Mn/MP","Min%","Mn/Start","Compl","Subs","Mn/Sub","unSub","PPM","onG","onGA","+/-","+/-90","onxG","onxGA","xG+/-","xG+/-90"], header = 0)
-# squadPossession2020 = pd.read_csv('data/2020-2021/squadPossession20202021.csv', decimal='.', usecols = ["Squad", "Poss", "Touches","Def Pen","Def 3rd","Mid 3rd","Att 3rd","Att Pen","Live","Succ","Att","Succ%","Mis","Dis","Rec","PPProg"], header = 0)
-# squadPassing2020 = pd.read_csv('data/2020-2021/squadPassing20202021.csv', decimal='.', usecols = ["Squad", "TCmp","TAtt","TCmp%","PTotDist","PPrgDist","SCmp","SAtt","SCmp%","MCmp","MAtt","MCmp%","LCmp","LAtt","LCmp%","A-xA","KP", "1/3","PPA","CrsPA","PProg"], header = 0)
-
-# advancedKeeping2021 = pd.read_csv('data/2021-2022/advancedGoalkeeping20212022.csv', decimal='.', usecols = ["Squad","CK","OG","PSxG","PSxG/SoT","PSxG+/-","/90","LGCmp","LGAtt","LGCmp%","PAtt","Thr","PLaunch%","PAvgLen","GAtt","GLaunch%","GAvgLen","Opp","Stp","Stp%","#OPA","#OPA/90","AvgDist"], header = 0)
-# squadStats2021 = pd.read_csv('data/2021-2022/squadstats20212022.csv', decimal='.', usecols = ["Squad","MP","Starts","90s","Gls","Ast","G-PK","CrdY","CrdR","G+A","G+A-PK", "xG","xA","npxG+xA","xA","xG+xA","npxG+xA"], header = 0)
-# shootingStats2021 = pd.read_csv('data/2021-2022/shooting20212022.csv', decimal = '.', usecols = ["Squad","Sh","SoT","SoT%","Sh/90","SoT/90","G/Sh","G/SoT","Dist","FK","PK","PKatt","npxG","npxG/Sh","G-xG","np:G-xG"], header = 0)
-# goalShotCreation2021 = pd.read_csv('data/2021-2022/goalShotCreation20212022.csv', decimal = '.', usecols = ["Squad", "SCA▼","SCA90","SCAPassLive","SCAPassDead","SCADrib","SCASh","SCAFld","SCADef","GCA","GCA90","GCAPassLive","GCAPassDead","GCADrib","GCASh","GCAFld","GCADef"], header = 0)
-# goalkeepingStats2021 = pd.read_csv('data/2021-2022/goalkeeping20212022.csv', decimal='.', usecols = ["Squad","GA","GA90","SoTA","Saves","Save%","W","D","L","CS","CS%", "GPKatt", "PKA","PKsv","PKm","Save%"], header = 0)
-# squadDefense2021 = pd.read_csv('data/2021-2022/squadDefensive20212022.csv', decimal='.', usecols = ["Squad", "TKTkl","TklW","TK Def 3rd","TK Mid 3rd","TK Att 3rd","VSTkl","DAtt","Tkl%","Past","Blocks","DSh","Pass","Int","Tkl+Int","Clr","Err"], header = 0)
-# squadPlayingTime2021 = pd.read_csv('data/2021-2022/squadPlayingTime20212022.csv', decimal='.', usecols = ["Squad","Mn/MP","Min%","Mn/Start","Compl","Subs","Mn/Sub","unSub","PPM","onG","onGA","+/-","+/-90","onxG","onxGA","xG+/-","xG+/-90"], header = 0)
-# squadPossession2021 = pd.read_csv('data/2021-2022/squadPossession20212022.csv', decimal='.', usecols = ["Squad", "Poss", "Touches","Def Pen","Def 3rd","Mid 3rd","Att 3rd","Att Pen","Live","Succ","Att","Succ%","Mis","Dis","Rec","PPProg"], header = 0)
-# squadPassing2021 = pd.read_csv('data/2021-2022/squadPassing20212022.csv', decimal='.', usecols = ["Squad", "TCmp","TAtt","TCmp%","PTotDist","PPrgDist","SCmp","SAtt","SCmp%","MCmp","MAtt","MCmp%","LCmp","LAtt","LCmp%","A-xA","KP", "1/3", "PPA","CrsPA","PProg"], header = 0)
-
-# columns i've had to remove: DSucc (Defensive)
-
 sys.path.append('~/Desktop/Everything/Programming/CurrentProjects/AlgoPicks')
 
 # [-- Global Variables --]
@@ -266,7 +232,7 @@ opts.add_experimental_option('useAutomationExtension', False)
 
 def downloadCurrentData(url, saveFileName, save):
     global currentData, currentDataGF, currentDataGA, curr_columns_to_drop, actualCurrentGoals, actualCurrentGA, actualCurrentTeams
-    if (shouldPrint): print("Downloading the latest data...")
+    if (shouldPrint): print("Downloading data...")
 
     # url = f"https://fbref.com/en/comps/9/Premier-League-Stats" # EPL url using fbref
         
@@ -332,7 +298,7 @@ def downloadCurrentData(url, saveFileName, save):
         statsTable = statsTable[0]
         statsTable.columns = statsTable.columns.droplevel()
         if (index == 11):
-            statsTable.columns = ["Squad", "# Pl", "Age", "Poss", "MP","Starts","Min", "90s","Gls","Ast","G-PK", "PK", "PKatt", "CrdY","CrdR", "Gls", "Ast","G+A","G-PK", "G+A-PK", "xG", "npxG", "xA","npxG+xA", "xG", "xA","xG+xA","npxG", "npxG+xA"]
+            statsTable.columns = ["Squad", "# Pl", "Age", "Poss", "MP","Starts","Min", "90s","Gls","Ast","G+A", "G-PK", "PK", "PKatt", "CrdY","CrdR", "xG", "npxG", "xGA", "npxG+xGA", "PrgC", "PrgP", "Gls", "Ast","G+A","G-PK", "G+A-PK", "xG", "xAG", "xG+xGA","npxG", "npxG+xAG"]
             statsTable.drop(columns = "Poss", inplace = True)
         if (index == 13):
             statsTable.rename(columns = {"PKatt" : "GPKatt"}, inplace = True)
@@ -345,7 +311,7 @@ def downloadCurrentData(url, saveFileName, save):
         if (index == 25):
             statsTable.columns = ["Squad", "# Pl", "90s", "TKTkl","TklW","TK Def 3rd","TK Mid 3rd","TK Att 3rd","VSTkl","DAtt","Tkl%","Past","Blocks","DSh","Pass","Int","Tkl+Int","Clr","Err"]
         if (index == 27):
-            statsTable.columns = ["Squad", "# Pl", "Poss", "90s", "Touches","Def Pen","Def 3rd","Mid 3rd","Att 3rd","Att Pen","Live","Succ","Att","Succ%","Mis","Dis","Rec","PPProg"]
+            statsTable.columns = ["Squad", "# Pl", "Poss", "90s", "Touches","Def Pen","Def 3rd","Mid 3rd","Att 3rd","Att Pen","Live","Att","Succ","Succ%", "Tkld","Tkld%","Carries","TotDist","ProgDist","PrgC","1/3","CPA","Mis","Dis","Rec","ProgR"]
         seperateData.append(statsTable)
     
     # merges all different types of stats into a single dataframe
@@ -359,12 +325,10 @@ def downloadCurrentData(url, saveFileName, save):
             if (col not in curr_columns_to_drop):
                 curr_columns_to_drop.append(col)
     
-    currentSquadColumn = currentData['Squad'].values.tolist()
-    
     for col in curr_columns_to_drop:
         currentData.drop(columns = col, inplace = True)
         
-    if save: currentData.to_csv("Football3.0/data/" + saveFileName, index = False)
+    if save: currentData.to_csv("data/" + saveFileName, index = False)
     
     actualCurrentTeams = currentData['Squad'].values.tolist()
     actualCurrentGoals = currentData['Gls'].values.tolist()
@@ -376,19 +340,15 @@ def downloadCurrentData(url, saveFileName, save):
     driver.quit()
     
     if (shouldPrint): ("Uploading current data...")
-    if (shouldPrint): print("\nLatest data downloaded.\n")
+    if (shouldPrint): print("\nData downloaded.\n")
     
     return currentData
-    
-    currentDataGF = currentData.copy()
-    currentDataGA = currentData.copy()
     
     
 def downloadPastData(url1, url2, saveFileName):
     global currentData, currentDataGF, currentDataGA, curr_columns_to_drop, actualCurrentGoals, actualCurrentGA, actualCurrentTeams
     if (shouldPrint): print("Downloading the old data...")
     years = ['2021-2022/2021-2022-', '2020-2021/2020-2021-', '2019-2020/2019-2020-', '2018-2019/2018-2019-', '2017-2018/2017-2018-']  # '2016-2017/2016-2017-'
-    # url = f"https://fbref.com/en/comps/9/Premier-League-Stats" # EPL url using fbref
     dataframes = []
     for i in range(len(years)):
         df = downloadCurrentData(url1 + years[i] + url2, "", False) # set to false to not save the data locally (by year individually)
@@ -396,20 +356,20 @@ def downloadPastData(url1, url2, saveFileName):
     
     merged = pd.concat(dataframes)
     
-    merged.to_csv("Football3.0/data/" + saveFileName, index = False)
+    merged.to_csv("data/" + saveFileName, index = False)
     
     print(merged)
     
 def getPastDataFromLocal(filename):
     if (shouldPrint): print("Uploading old data...")
-    data = pd.read_csv("Football3.0/data/" + filename)
+    data = pd.read_csv("data/" + filename)
     
     return data
     
 def getCurrentDataLocally(filename):
     global currentData, currentDataGF, currentDataGA, actualCurrentGoals, actualCurrentGA, actualCurrentTeams
     
-    currentData = pd.read_csv("Football3.0/data/" + filename)
+    currentData = pd.read_csv("data/" + filename)
     
     for col in curr_columns_to_drop:
         try:
@@ -424,9 +384,6 @@ def getCurrentDataLocally(filename):
     currentData.drop(columns = "Squad", inplace = True)
     
     return currentData
-    
-    currentDataGF = currentData.copy()
-    currentDataGA = currentData.copy()
 
 # verifies that two given dataframes have the same columns (or are compatible)
 def verifyColumnLengths(df1, df2):
@@ -522,21 +479,6 @@ def correlation(df, avoid):
         df.drop(columns = highestCorrelatedItem, inplace = True) # removes the highest correlated data point
         columns_to_remove.append(highestCorrelatedItem)
         if (shouldPrint): print(f"Removed {highestCorrelatedItem} [{correlationValue}]")
-    
-    # the independent variables set
-    # listOfCols = list(df.columns)
-    # listOfCols.remove(avoid)
-    # X = df[listOfCols]
-    
-    # # VIF dataframe
-    # vif_data = pd.DataFrame()
-    # vif_data["feature"] = X.columns
-    
-    # # calculating VIF for each feature
-    # vif_data["VIF"] = [variance_inflation_factor(X.values, i)
-    #                         for i in range(len(X.columns))]
-    
-    # print(vif_data.sort_values(by=["VIF"], ascending=False))
 
 # ====================================================================================================
 #                               [-- Regression Step --]
@@ -748,7 +690,7 @@ def ensembleLearning(df, targetVariable, targetVariableColumn, actualTargetColum
     
     currentX.set_index('Teams', inplace=True)
     
-    currentX.to_csv("Football3.0/data/" + columnNames[0] + '.csv')
+    currentX.to_csv("data/" + columnNames[0] + '.csv')
     
     return currentX
     
@@ -947,70 +889,6 @@ def resetParameters():
     ScoreHistory = []
     R2History = []
 
-
-# def oldBuildData():
-#     global shouldPrint, currentDataGF, currentDataGA, dataframeGF, dataframeGA, columns_to_remove, coefficients
-#     shouldPrint = True
-#     if (shouldPrint): print("Constructing model...\n")
-    
-#     # downloadCurrentData("https://fbref.com/en/comps/9/Premier-League-Stats") # downloads the current data from online and stores it in a singular dataframe (currentData) (time consuming)
-#     getCurrentDataLocally() # gets the current data from the local files (can be used if already downloaded recently to save a lot of time) (currentData.csv)
-    
-#     # [-- Offensive --]
-#     if (shouldPrint): print("\nOffensive Analysis...")
-    
-#     verifyColumnLengths(currentDataGF, dataframeGF) # verifies that current dataframe and past dataframe are compatible (same columns)
-#     resetParameters() # resets the parameters for the offensive analysis
-    
-#     # correlation(dataframeGF, "Gls") # removing statistics based on correlation
-#     randomForestRegression(dataframeGF, "Gls", actualPastGoals) # removing statistics based on random forest regression (feature importance)
-#     # regression(dataframeGF, "Gls", actualPastGoals) # removing statistics based on regression (p-value)
-#     # graphModelPerfomanceHistory() # graphs the MSE, R2, and Score history for the model
-    
-#     currentDataGF, dataframeGF = cleanUpData(currentDataGF, dataframeGF) # cleans the current data (removing unnecessary columns, ordering the columns, and verifying that the dataframes are compatible)
-#     currentDataGF = ensembleLearning(dataframeGF, "Gls", actualPastGoals, actualCurrentGoals, currentDataGF, ['xGF', 'acGF']) # stacks two models together to create a third model (ensemble learning)
-#     # selectBestFeatures(dataframeGF, "Gls") # removing statistics based on VIF (multicollinearity)
-#     # selectNBestChiFeatures(dataframeGF, actualPastGoalsColumn, 3) # removing statistics based on chi-squared (statistical independence)
-
-#     # [-- Defensive --]
-#     if (shouldPrint): print("\nDefensive Analysis...")
-    
-#     verifyColumnLengths(currentDataGA, dataframeGA) # verifies that current dataframe and past dataframe are compatible (same columns)
-#     resetParameters() # resetting the parameters for defensive analysis
-    
-#     # correlation(dataframeGA, "GA") # removing statistics based on correlation
-#     # regression(dataframeGA, "GA", actualPastGA) # removing statistics based on regression (p-value)
-#     # dataframeGA.drop(columns = "GA", inplace = True) # removing the target variable from the dataframe
-    
-#     randomForestRegression(dataframeGA, "GA", actualPastGA) # removing statistics based on random forest regression (feature importance)
-#     # graphModelPerfomanceHistory() # graphs the model performance history
-    
-#     currentDataGA, dataframeGA = cleanUpData(currentDataGA, dataframeGA) # cleans the current data (removing unnecessary columns, ordering the columns, and verifying that the dataframes are compatible)
-#     currentDataGA = ensembleLearning(dataframeGA, "GA", actualPastGA, actualCurrentGA, currentDataGA, ['xGA', 'acGA']) # stacks two models together to create a third model (ensemble learning)
-    
-#     SPIDataframe = get_spi_data() # gets the SPI data from online and stores it in a dataframe
-    
-#     finalDataframe = setUpDataframeforDatabase(currentDataGF, currentDataGA) # sets up the dataframes for the database
-    
-#     print(finalDataframe)
-#     print(SPIDataframe)
-    
-#     # merge the SPI data with the final dataframe (by the team name)
-#     finalDataframe = finalDataframe.merge(SPIDataframe, how = 'left', left_on = 'Teams', right_on = 'Teams')
-#     finalDataframe.to_csv('finalDataframe.csv')
-#     # sort the dataframe by the attack strength (descending) and print it
-#     print(finalDataframe.sort_values(by = ['SPI'], ascending = False))
-#     exit()
-    
-#     #cleanCurrentData(currentDataGA) # cleans the current data (removing unnecessary columns)
-#     #verifyColumnLengths(currentDataGA, dataframeGA) # verifying that current data and past data is compatible
-#     #currentDataGA, dataframeGA = orderTwoDataFrames(currentDataGA, dataframeGA) # orders the columns in the dataframes to be the same
-#     #getRegressionCoefficientsFromData(dataframeGA, actualPastGA) # gets the regression coefficients from the past data
-    
-#     prediction(currentDataGA, "Expected GA", "Actual GA", actualCurrentGA)
-#     print(currentDataGA)
-    
-    
 # builds the model
 def buildData(currentURL, spiURL, saveFinalDataframeName, pastDataFileName, currentFilename, downloadRequired):
     global shouldPrint, currentData, currentDataGF, currentDataGA, dataframeGF, dataframeGA, columns_to_remove, coefficients
@@ -1037,7 +915,8 @@ def buildData(currentURL, spiURL, saveFinalDataframeName, pastDataFileName, curr
     actualCurrentGoals = currentDataGF["Gls"].values # gets the actual goals scored from the current data
     actualCurrentGA = currentDataGA["GA"].values # gets the actual goals allowed from the current data
     
-    # [-- Offensive --]
+    #                                            [-- Offensive --]
+    
     if (shouldPrint): print("\nOffensive Analysis...")
     
     verifyColumnLengths(currentDataGF, dataframeGF) # verifies that current dataframe and past dataframe are compatible (same columns)
@@ -1048,7 +927,9 @@ def buildData(currentURL, spiURL, saveFinalDataframeName, pastDataFileName, curr
     
     currentDataGF, dataframeGF = cleanUpData(currentDataGF, dataframeGF) # cleans the current data (removing unnecessary columns, ordering the columns, and verifying that the dataframes are compatible)
     currentDataGF = ensembleLearning(dataframeGF, "Gls", actualPastGoals, actualCurrentGoals, currentDataGF, ['xGF', 'acGF']) # stacks two models together to create a third model (ensemble learning)
-    # [-- Defensive --]
+    
+    #                                          [-- Defensive --]
+    
     if (shouldPrint): print("\nDefensive Analysis...")
     
     verifyColumnLengths(currentDataGA, dataframeGA) # verifies that current dataframe and past dataframe are compatible (same columns)
@@ -1067,13 +948,16 @@ def buildData(currentURL, spiURL, saveFinalDataframeName, pastDataFileName, curr
     # merge the SPI data with the final dataframe (by the team name)
     finalDataframe = finalDataframe.merge(SPIDataframe, how = 'left', left_on = 'Teams', right_on = 'Teams')
     finalDataframe.sort_values(by = ['SPI'], ascending = False, inplace = True)
-    finalDataframe.to_csv("Football3.0/data/" + saveFinalDataframeName)
+    finalDataframe.to_csv("data/" + saveFinalDataframeName)
 
 def initFirebaseDatabase():
+    if shouldPrint: print("Initializing Firebase Database...")
     cred = credentials.Certificate('functions/algopick-acc98-firebase-adminsdk-mwc8r-f53eed233a.json')
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://algopick-acc98-default-rtdb.firebaseio.com'
     })
+    # verify that the database is initialized
+    if shouldPrint: print("Database Initialized: " + str(db.reference().get() != None))
 
 
 def uploadToDatabase(dataframe, databaseName):
@@ -1091,22 +975,27 @@ def uploadToDatabase(dataframe, databaseName):
     ref.child(databaseName).set(data)
 
 
-def daily():
-    buildData("https://fbref.com/en/comps/9/Premier-League-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/premier-league/", "finalDataframePremierLeague.csv", "pastDataPremierLeague.csv", "currentDataPremierLeague.csv", True)
-    buildData("https://fbref.com/en/comps/12/La-Liga-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/la-liga/", "finalDataframeLaLiga.csv", "pastDataLaLiga.csv", "currentDataLaLiga.csv", True)
-    buildData("https://fbref.com/en/comps/11/Serie-A-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/serie-a/", "finalDataframeSerieA.csv", "pastDataSerieA.csv", "currentDataSerieA.csv", True)
-    buildData("https://fbref.com/en/comps/20/Bundesliga-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/bundesliga/", "finalDataframeBundesliga.csv", "pastDataBundesliga.csv", "currentDataBundesliga.csv", True)
-    buildData("https://fbref.com/en/comps/13/Ligue-1-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/ligue-1/", "finalDataframeLigue1.csv", "pastDataLigue1.csv", "currentDataLigue1.csv", True)
+def daily(past, current):
+    initFirebaseDatabase()
+    
+    if past:
+        downloadPastData("https://fbref.com/en/comps/9/", "Premier-League-Stats", "pastDataPremierLeague.csv")
+    
+    buildData("https://fbref.com/en/comps/9/Premier-League-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/premier-league/", "finalDataframePremierLeague.csv", "pastDataPremierLeague.csv", "currentDataPremierLeague.csv", current)
+    # buildData("https://fbref.com/en/comps/12/La-Liga-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/la-liga/", "finalDataframeLaLiga.csv", "pastDataLaLiga.csv", "currentDataLaLiga.csv", True)
+    # buildData("https://fbref.com/en/comps/11/Serie-A-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/serie-a/", "finalDataframeSerieA.csv", "pastDataSerieA.csv", "currentDataSerieA.csv", True)
+    # buildData("https://fbref.com/en/comps/20/Bundesliga-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/bundesliga/", "finalDataframeBundesliga.csv", "pastDataBundesliga.csv", "currentDataBundesliga.csv", True)
+    # buildData("https://fbref.com/en/comps/13/Ligue-1-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/ligue-1/", "finalDataframeLigue1.csv", "pastDataLigue1.csv", "currentDataLigue1.csv", True)
 
-    bigFive = [['finalDataframePremierLeague.csv', 'PremierLeagueAnalysis'],
-               ['finalDataframeLaLiga.csv', 'LaLigaAnalysis'],
-               ['finalDataframeSerieA.csv', 'SerieAAnalysis'],
-               ['finalDataframeBundesliga.csv', 'BundesligaAnalysis'],
-               ['finalDataframeLigue1.csv', 'Ligue1Analysis']]
+    bigFive = [['finalDataframePremierLeague.csv', 'PremierLeagueAnalysis']]
+            #    ['finalDataframeLaLiga.csv', 'LaLigaAnalysis'],
+            #    ['finalDataframeSerieA.csv', 'SerieAAnalysis'],
+            #    ['finalDataframeBundesliga.csv', 'BundesligaAnalysis'],
+            #    ['finalDataframeLigue1.csv', 'Ligue1Analysis']]
     
     for i in bigFive:
         print(f"Uploading {i[0]} to database...")
-        df = pd.read_csv("Football3.0/data/" +  i[0]).T
+        df = pd.read_csv("data/" +  i[0]).T
         df.columns = df.iloc[0]
         df.drop(df.index[0], inplace = True)
         uploadToDatabase(df, i[1])
@@ -1124,25 +1013,25 @@ def daily():
 #buildData("https://fbref.com/en/comps/13/Ligue-1-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/ligue-1/", "finalDataframeLigue1.csv", "pastDataLigue1.csv", "currentDataLigue1.csv", True)
 # soccerDataFBRef()
 
-initFirebaseDatabase()
+# initFirebaseDatabase()
 
-bigFive = [['finalDataframePremierLeague.csv', 'PremierLeagueAnalysis'],
-           ['finalDataframeLaLiga.csv', 'LaLigaAnalysis'],
-           ['finalDataframeSerieA.csv', 'SerieAAnalysis'],
-           ['finalDataframeBundesliga.csv', 'BundesligaAnalysis'],
-           ['finalDataframeLigue1.csv', 'Ligue1Analysis']]
+# bigFive = [['finalDataframePremierLeague.csv', 'PremierLeagueAnalysis'],
+#            ['finalDataframeLaLiga.csv', 'LaLigaAnalysis'],
+#            ['finalDataframeSerieA.csv', 'SerieAAnalysis'],
+#            ['finalDataframeBundesliga.csv', 'BundesligaAnalysis'],
+#            ['finalDataframeLigue1.csv', 'Ligue1Analysis']]
     
-for i in bigFive:
-    print(f"Uploading {i[0]} to database...")
-    df = pd.read_csv("Football3.0/data/" +  i[0]).T
-    df.columns = df.iloc[0]
-    df.drop(df.index[0], inplace = True)
-    uploadToDatabase(df, i[1])
-    exit()
+# for i in bigFive:
+#     print(f"Uploading {i[0]} to database...")
+#     df = pd.read_csv("data/" +  i[0]).T
+#     df.columns = df.iloc[0]
+#     df.drop(df.index[0], inplace = True)
+#     uploadToDatabase(df, i[1])
+#     exit()
 
 
 #daily()
 
-print("Code completed.")
+daily(False, False)
 
-exit()
+print("Code completed.")
