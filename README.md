@@ -8,7 +8,7 @@ A python machine learning model to predict the outcomes of soccer games. (La Lig
   <ol>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#builtwith">Built With</a></li>
-    <li><a href=#dependencies">Dependencies</a></li>
+    <li><a href="#dependencies">Dependencies</a></li>
   </ol>
 </details>
 
