@@ -1,5 +1,6 @@
-# Football Prediction Model 3.00
-A python machine learning model to predict the outcomes of soccer games. (La Liga, Serie A, Premier League, Ligue One, Bundesliga)
+# Casino
+
+A web application built with React and Redux that allows users to practice their blackjack skills. The website shows a players hand as well as the dealers up card and you have to guess what the optimal decision is (stand, hit, etc).
 
 <!-- TABLE OF CONTENTS -->
 <div id="top"></div>
@@ -7,8 +8,8 @@ A python machine learning model to predict the outcomes of soccer games. (La Lig
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#overview">Overview</a></li>
+    <li><a href="#gettingstarted">Getting Started</a></li>
     <li><a href="#builtwith">Built With</a></li>
-    <li><a href="#dependencies">Dependencies</a></li>
   </ol>
 </details>
 
@@ -21,40 +22,35 @@ I built a machine learning model designed to predict the outcome of football mat
       
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- GETTING STARTED -->
+<div id="getting-started"></div>
+## Getting Started
+
+#### To get a local copy up and running, follow these steps:
+
+Clone the repository:
+'''
+git clone https://github.com/[username]/blackjack-game.git
+'''
+Install the dependencies:
+'''
+npm install
+'''
+Start the server:
+'''
+npm start
+'''
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- Built With -->
 <div id="builtwith"></div>
 
 ## Built With
-* [Python](https://python.org)
+* React
+* Redux
+* Node.js
+* npm
+* Bootstrap
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- Dependencies -->
-<div id="dependencies"></div>
-
-## Dependencies
-- numpy
-- pandas
-- IPython.display
-- soccerdata
-- sys
-- statsmodels.stats.outliers_influence
-- seaborn
-- matplotlib.pyplot
-- sklearn.model_selection
-- scipy.stats
-- sklearn.linear_model.Ridge
-- regressors.stats
-- sklearn.feature_selection.SelectKBest
-- sklearn.feature_selection.chi2
-- sklearn.metrics.mean_squared_error
-- sklearn.ensemble.RandomForestRegressor
-- sklearn.preprocessing.StandardScaler
-- sklearn.pipeline
-- sklearn.metrics
-- selenium
-- twilio.rest
-- itertools
-- tweepy
-- re
-- firebase_admin
