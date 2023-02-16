@@ -29,17 +29,17 @@ I built a machine learning model designed to predict the outcome of football mat
 #### To get a local copy up and running, follow these steps:
 
 Clone the repository:
-'''
+```
 git clone https://github.com/[username]/blackjack-game.git
-'''
+```
 Install the dependencies:
-'''
+```
 npm install
-'''
+```
 Start the server:
-'''
+```
 npm start
-'''
+```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Built With -->
