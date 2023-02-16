@@ -1,6 +1,6 @@
-# Casino
+# Football Prediction Model 3.0
 
-A web application built with React and Redux that allows users to practice their blackjack skills. The website shows a players hand as well as the dealers up card and you have to guess what the optimal decision is (stand, hit, etc).
+A python machine learning model to predict the outcomes of soccer games. (La Liga, Serie A, Premier League, Ligue One, Bundesliga)
 
 <!-- TABLE OF CONTENTS -->
 <div id="top"></div>
