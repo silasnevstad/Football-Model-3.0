@@ -24,6 +24,7 @@ I built a machine learning model designed to predict the outcome of football mat
 
 <!-- GETTING STARTED -->
 <div id="getting-started"></div>
+
 ## Getting Started
 
 #### To get a local copy up and running, follow these steps:
