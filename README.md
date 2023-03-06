@@ -18,7 +18,7 @@ A python machine learning model to predict the outcomes of soccer games. (La Lig
 
 ## Overview
 
-I built a machine learning model designed to predict the outcome of football matches. It takes various factors into account such as team statistics, home advantage, and recent form to make its predictions. I have trained the model on a large dataset of historical football matches, allowing it to learn patterns and relationships that can be used to make accurate predictions. The model provides a probability of each potential outcome (such as win, loss, or draw) for a specific match, enabling users to make informed decisions regarding the game's outcome (such as the winning team or the final score).
+I built a machine learning model designed to predict the outcome of football matches. It has been trained on data from 2015 to 2022 for both home and away fixtures, predicting the expected goals scored for and against. I then calculate team strengths and predict game odds analyzing if they have an edge over vegas odds.
    
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -36,10 +36,6 @@ I built a machine learning model designed to predict the outcome of football mat
  ## Dependencies
  - numpy
  - pandas
- - IPython.display
- - soccerdata
- - sys
- - statsmodels.stats.outliers_influence
  - seaborn
  - matplotlib.pyplot
  - sklearn.model_selection
