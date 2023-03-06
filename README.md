@@ -35,7 +35,26 @@ I built a machine learning model designed to predict the outcome of football mat
  <div id="dependencies"></div>
 
  ## Dependencies
-
+ - numpy
+ - pandas
+ - seaborn
+ - matplotlib.pyplot
+ - sklearn.model_selection
+ - scipy.stats
+ - sklearn.linear_model.Ridge
+ - regressors.stats
+ - sklearn.feature_selection.SelectKBest
+ - sklearn.feature_selection.chi2
+ - sklearn.metrics.mean_squared_error
+ - sklearn.ensemble.RandomForestRegressor
+ - sklearn.preprocessing.StandardScaler
+ - sklearn.pipeline
+ - sklearn.metrics
+ - selenium
+ - twilio.rest
+ - itertools
+ - tweepy
+ - re
  - firebase_admin
 
 <p align="right">(<a href="#top">back to top</a>)</p>
