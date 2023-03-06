@@ -4,12 +4,13 @@ A python machine learning model to predict the outcomes of soccer games. (La Lig
 
 <!-- TABLE OF CONTENTS -->
 <div id="top"></div>
-<details>
+<details open>
   <summary>Table of Contents</summary>
   <ol>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#builtwith">Built With</a></li>
     <li><a href="#dependencies">Dependencies</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -34,26 +35,13 @@ I built a machine learning model designed to predict the outcome of football mat
  <div id="dependencies"></div>
 
  ## Dependencies
- - numpy
- - pandas
- - seaborn
- - matplotlib.pyplot
- - sklearn.model_selection
- - scipy.stats
- - sklearn.linear_model.Ridge
- - regressors.stats
- - sklearn.feature_selection.SelectKBest
- - sklearn.feature_selection.chi2
- - sklearn.metrics.mean_squared_error
- - sklearn.ensemble.RandomForestRegressor
- - sklearn.preprocessing.StandardScaler
- - sklearn.pipeline
- - sklearn.metrics
- - selenium
- - twilio.rest
- - itertools
- - tweepy
- - re
+
  - firebase_admin
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+<div id="acknowledgements"></div>
+
+## Acknowledgements
+
+Data sourced from footbatll-reference.com, fivethirtyeight.com
