@@ -75,37 +75,6 @@ actualPastGA = []
 
 columns_to_remove = []
 
-# actualCurrentTeams = squadStats2021['Squad']
-# actualCurrentGoals = squadStats2021['Gls']
-# actualPastGoals = squadStats2020['Gls']
-# actualPastGoalsColumn = squadStats2020['Gls']
-# actualCurrentGA = goalkeepingStats2021['GA']
-# actualPastGA = goalkeepingStats2020['GA']
-# # a = goalkeepingStats2021['GA']
-# currentSquadsColumn = squadStats2019['Squad']
-
-# teamsInEPL = ["Arsenal",
-#               "Aston Villa",
-#               "Brentford",
-#               "Brighton and Hove Albion",
-#               "Burnley",
-#               "Chelsea",
-#               "Crystal Palace",
-#               "Everton",
-#               "Leeds United",
-#               "Leicester City",
-#               "Liverpool",
-#               "Manchester City",
-#               "Manchester United",
-#               "Newcastle United",
-#               "Norwich City",
-#               "Southampton",
-#               "Spurs",
-#               "Tottenham Hotspur",
-#               "Watford",
-#               "West Ham United",
-#               "Wolverhampton Wanderers"]
-
 shouldPrint = True
 
 
@@ -115,28 +84,6 @@ currentDataGF = pd.DataFrame()
 currentDataGA = pd.DataFrame()
 
 curr_columns_to_drop = ['Age', 'Min', 'xAG', '# Pl'] # Squad
-
-# Final Data
-# finalDataframe = []
-
-# # Merging initial data
-# df2019 = [advancedKeeping2019, goalkeepingStats2019, goalShotCreation2019, squadDefense2019, squadPlayingTime2019, squadPossession2019, squadPassing2019, squadStats2019, shootingStats2019]
-# df2020 = [advancedKeeping2020, goalkeepingStats2020, goalShotCreation2020, squadDefense2020, squadPlayingTime2020, squadPossession2020, squadPassing2020, squadStats2020, shootingStats2020]
-# df2021 = [advancedKeeping2021, goalkeepingStats2021, goalShotCreation2021, squadDefense2021, squadPlayingTime2021, squadPossession2021, squadPassing2021, squadStats2021, shootingStats2021]
-# dfMerged2019 = reduce(lambda  left,right: pd.merge(left,right,on=['Squad'], how='outer'), df2019)
-# dfMerged2020 = reduce(lambda  left,right: pd.merge(left,right,on=['Squad'], how='outer'), df2020)
-# dfMerged2021 = reduce(lambda  left,right: pd.merge(left,right,on=['Squad'], how='outer'), df2021)
-# frames = [dfMerged2019, dfMerged2020, dfMerged2021]
-# dataDataframe = pd.concat(frames)
-# #dataDataframe = dataDataframe.loc[:,~dataDataframe.T.duplicated(keep='first')].copy()
-
-# dataDataframe.drop(columns = "Squad", inplace = True)
-# actualPastGoals = dataDataframe['Gls'].values.tolist()
-# actualPastGoalsColumn = dataDataframe['Gls']
-# actualPastGA = dataDataframe['GA'].values.tolist()
-# actualPastGAColumn = dataDataframe['GA']
-# dataframeGF = dataDataframe.copy()
-# dataframeGA = dataDataframe.copy()
 
 # ====================================================================================================
 #                                   [-- Data Scraping Step --]
@@ -1302,44 +1249,6 @@ def daily(past, current):
         df.columns = df.iloc[0]
         df.drop(df.index[0], inplace = True)
         uploadToDatabase(df, i[1])
-
-# downloadPastData("https://fbref.com/en/comps/9/", "Premier-League-Stats", "pastDataPremierLeague.csv")
-# downloadPastData("https://fbref.com/en/comps/12/", "La-Liga-Stats", "pastDataLaLiga.csv")
-# downloadPastData("https://fbref.com/en/comps/11/", "Serie-A-Stats", "pastDataSerieA.csv")
-# downloadPastData("https://fbref.com/en/comps/20/", "Bundesliga-Stats", "pastDataBundesliga.csv")
-# downloadPastData("https://fbref.com/en/comps/13/", "Ligue-1-Stats", "pastDataLigue1.csv")
-#buildData("https://fbref.com/en/comps/9/Premier-League-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/premier-league/", "finalDataframePremierLeague.csv", "pastDataPremierLeague.csv", "currentDataPremierLeague.csv", True)
-#buildData("https://fbref.com/en/comps/12/La-Liga-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/la-liga/", "finalDataframeLaLiga.csv", "pastDataLaLiga.csv", "currentDataLaLiga.csv", True)
-#buildData("https://fbref.com/en/comps/11/Serie-A-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/serie-a/", "finalDataframeSerieA.csv", "pastDataSerieA.csv", "currentDataSerieA.csv", True)
-#buildData("https://fbref.com/en/comps/20/Bundesliga-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/bundesliga/", "finalDataframeBundesliga.csv", "pastDataBundesliga.csv", "currentDataBundesliga.csv", True)
-#buildData("https://fbref.com/en/comps/13/Ligue-1-Stats", "https://projects.fivethirtyeight.com/soccer-predictions/ligue-1/", "finalDataframeLigue1.csv", "pastDataLigue1.csv", "currentDataLigue1.csv", True)
-# soccerDataFBRef()
-
-# initFirebaseDatabase()
-
-# bigFive = [['finalDataframePremierLeague.csv', 'PremierLeagueAnalysis'],
-#            ['finalDataframeLaLiga.csv', 'LaLigaAnalysis'],
-#            ['finalDataframeSerieA.csv', 'SerieAAnalysis'],
-#            ['finalDataframeBundesliga.csv', 'BundesligaAnalysis'],
-#            ['finalDataframeLigue1.csv', 'Ligue1Analysis']]
-    
-# for i in bigFive:
-#     print(f"Uploading {i[0]} to database...")
-#     df = pd.read_csv("data/" +  i[0]).T
-#     df.columns = df.iloc[0]
-#     df.drop(df.index[0], inplace = True)
-#     uploadToDatabase(df, i[1])
-#     exit()
-
-
-#daily()
-
-# daily(False, False)
-# get finalDataframePremierLeague.csv final as a dataframe
-# df = pd.read_csv("data/finalDataframePremierLeague.csv").T
-# predictingResults("Everton", "Manchester City", pd.read_csv("data/finalDataframePremierLeague.csv")) 
-# backtest(pd.read_csv("data/finalDataframePremierLeague.csv"))
-# backtestWithOdds(pd.read_csv("data/finalDataframePremierLeague.csv"))
 
 initFirebaseDatabase()
 
